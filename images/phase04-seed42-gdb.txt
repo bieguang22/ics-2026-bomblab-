@@ -1,0 +1,15 @@
+$ gdb -q -batch -ex set pagination off -ex set confirm off -ex set debuginfod enabled off -ex break p4_walk -ex run --seed 42 --phase 4 < images/phase04-seed42-answer.txt -ex printf "target=%u lo=%u hi=%u key=0x%x\n", $edi,$esi,$edx,$ecx -ex disable 1 -ex finish -ex printf "computed eax=0x%x (%u)\n", $eax,$eax -ex continue ./bomb
+Breakpoint 1 at 0x402320
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Phase 4 challenge: 0x09bc585a244823f2
+Input (unsigned decimal integers):
+
+Breakpoint 1, 0x0000000000402320 in p4_walk ()
+target=114 lo=0 hi=127 key=0xbdf4c81d
+0x00000000004023fa in phase_04 ()
+computed eax=0x55c143c5 (1438729157)
+Phase 4 defused.
+[Inferior 1 (process 674) exited normally]
+
+[exit status: 0]

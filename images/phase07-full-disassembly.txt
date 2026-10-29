@@ -1,0 +1,131 @@
+$ gdb -q -batch -ex set pagination off -ex set confirm off -ex set debuginfod enabled off -ex disassemble secret_gate -ex disassemble secret_copy -ex disassemble secret_phase -ex disassemble secret_mix ./bomb
+Dump of assembler code for function secret_gate:
+   0x0000000000402700 <+0>:	endbr64
+   0x0000000000402704 <+4>:	push   %rbp
+   0x0000000000402705 <+5>:	xor    %eax,%eax
+   0x0000000000402707 <+7>:	mov    $0x14,%ecx
+   0x000000000040270c <+12>:	mov    %rsp,%rbp
+   0x000000000040270f <+15>:	push   %r14
+   0x0000000000402711 <+17>:	mov    %rdx,%r14
+   0x0000000000402714 <+20>:	push   %r13
+   0x0000000000402716 <+22>:	mov    %rsi,%r13
+   0x0000000000402719 <+25>:	push   %r12
+   0x000000000040271b <+27>:	lea    -0xd0(%rbp),%r12
+   0x0000000000402722 <+34>:	push   %rbx
+   0x0000000000402723 <+35>:	mov    %rdi,%rbx
+   0x0000000000402726 <+38>:	mov    %r12,%rdi
+   0x0000000000402729 <+41>:	sub    $0xb0,%rsp
+   0x0000000000402730 <+48>:	rep stos %rax,%es:(%rdi)
+   0x0000000000402733 <+51>:	movl   $0x0,(%rdi)
+   0x0000000000402739 <+57>:	mov    %rbx,%rdi
+   0x000000000040273c <+60>:	call   0x401190 <strlen@plt>
+   0x0000000000402741 <+65>:	sub    $0x24,%rax
+   0x0000000000402745 <+69>:	cmp    $0x7f,%rax
+   0x0000000000402749 <+73>:	jbe    0x402760 <secret_gate+96>
+   0x000000000040274b <+75>:	add    $0xb0,%rsp
+   0x0000000000402752 <+82>:	xor    %eax,%eax
+   0x0000000000402754 <+84>:	pop    %rbx
+   0x0000000000402755 <+85>:	pop    %r12
+   0x0000000000402757 <+87>:	pop    %r13
+   0x0000000000402759 <+89>:	pop    %r14
+   0x000000000040275b <+91>:	pop    %rbp
+   0x000000000040275c <+92>:	ret
+   0x000000000040275d <+93>:	nopl   (%rax)
+   0x0000000000402760 <+96>:	mov    %rbx,%rsi
+   0x0000000000402763 <+99>:	mov    %r12,%rdi
+   0x0000000000402766 <+102>:	call   0x4026e0 <secret_copy>
+   0x000000000040276b <+107>:	cmpl   $0x4e45504f,-0xb0(%rbp)
+   0x0000000000402775 <+117>:	jne    0x40274b <secret_gate+75>
+   0x0000000000402777 <+119>:	mov    %r14,%rdx
+   0x000000000040277a <+122>:	mov    %r13,%rsi
+   0x000000000040277d <+125>:	lea    -0xac(%rbp),%rdi
+   0x0000000000402784 <+132>:	call   0x402620 <secret_phase>
+   0x0000000000402789 <+137>:	add    $0xb0,%rsp
+   0x0000000000402790 <+144>:	pop    %rbx
+   0x0000000000402791 <+145>:	pop    %r12
+   0x0000000000402793 <+147>:	pop    %r13
+   0x0000000000402795 <+149>:	pop    %r14
+   0x0000000000402797 <+151>:	pop    %rbp
+   0x0000000000402798 <+152>:	ret
+End of assembler dump.
+Dump of assembler code for function secret_copy:
+   0x00000000004026e0 <+0>:	endbr64
+   0x00000000004026e4 <+4>:	xor    %eax,%eax
+   0x00000000004026e6 <+6>:	cs nopw 0x0(%rax,%rax,1)
+   0x00000000004026f0 <+16>:	movzbl (%rsi,%rax,1),%edx
+   0x00000000004026f4 <+20>:	mov    %dl,(%rdi,%rax,1)
+   0x00000000004026f7 <+23>:	add    $0x1,%rax
+   0x00000000004026fb <+27>:	test   %dl,%dl
+   0x00000000004026fd <+29>:	jne    0x4026f0 <secret_copy+16>
+   0x00000000004026ff <+31>:	ret
+End of assembler dump.
+Dump of assembler code for function secret_phase:
+   0x0000000000402620 <+0>:	endbr64
+   0x0000000000402624 <+4>:	push   %rbp
+   0x0000000000402625 <+5>:	mov    %rsp,%rbp
+   0x0000000000402628 <+8>:	push   %r13
+   0x000000000040262a <+10>:	mov    %rdx,%r13
+   0x000000000040262d <+13>:	push   %r12
+   0x000000000040262f <+15>:	mov    %rsi,%r12
+   0x0000000000402632 <+18>:	mov    $0x3,%esi
+   0x0000000000402637 <+23>:	push   %rbx
+   0x0000000000402638 <+24>:	mov    %rdi,%rbx
+   0x000000000040263b <+27>:	sub    $0x18,%rsp
+   0x000000000040263f <+31>:	call   0x402c50 <valid_u32_fields>
+   0x0000000000402644 <+36>:	test   %al,%al
+   0x0000000000402646 <+38>:	jne    0x402660 <secret_phase+64>
+   0x0000000000402648 <+40>:	xor    %edx,%edx
+   0x000000000040264a <+42>:	add    $0x18,%rsp
+   0x000000000040264e <+46>:	mov    %edx,%eax
+   0x0000000000402650 <+48>:	pop    %rbx
+   0x0000000000402651 <+49>:	pop    %r12
+   0x0000000000402653 <+51>:	pop    %r13
+   0x0000000000402655 <+53>:	pop    %rbp
+   0x0000000000402656 <+54>:	ret
+   0x0000000000402657 <+55>:	nopw   0x0(%rax,%rax,1)
+   0x0000000000402660 <+64>:	xor    %eax,%eax
+   0x0000000000402662 <+66>:	lea    -0x24(%rbp),%r8
+   0x0000000000402666 <+70>:	lea    -0x28(%rbp),%rcx
+   0x000000000040266a <+74>:	mov    $0x403183,%esi
+   0x000000000040266f <+79>:	lea    -0x2c(%rbp),%rdx
+   0x0000000000402673 <+83>:	mov    %rbx,%rdi
+   0x0000000000402676 <+86>:	call   0x4011e0 <__isoc99_sscanf@plt>
+   0x000000000040267b <+91>:	cmp    $0x3,%eax
+   0x000000000040267e <+94>:	jne    0x402648 <secret_phase+40>
+   0x0000000000402680 <+96>:	mov    %r13d,%ecx
+   0x0000000000402683 <+99>:	xor    %edx,%edx
+   0x0000000000402685 <+101>:	and    $0x3,%ecx
+   0x0000000000402688 <+104>:	cmp    %ecx,-0x2c(%rbp)
+   0x000000000040268b <+107>:	jne    0x40264a <secret_phase+42>
+   0x000000000040268d <+109>:	mov    %r12,%rsi
+   0x0000000000402690 <+112>:	imul   $0x7a47,%ecx,%r9d
+   0x0000000000402697 <+119>:	mov    %r13,%r8
+   0x000000000040269a <+122>:	shr    $0x20,%rsi
+   0x000000000040269e <+126>:	shr    $0x20,%r8
+   0x00000000004026a2 <+130>:	xor    %r12d,%esi
+   0x00000000004026a5 <+133>:	xor    %r13d,%r8d
+   0x00000000004026a8 <+136>:	shr    $0x10,%r13
+   0x00000000004026ac <+140>:	mov    %esi,%edi
+   0x00000000004026ae <+142>:	xor    %r13d,%r9d
+   0x00000000004026b1 <+145>:	xor    %r8d,%edi
+   0x00000000004026b4 <+148>:	call   0x402610 <secret_mix>
+   0x00000000004026b9 <+153>:	xor    %r9d,%eax
+   0x00000000004026bc <+156>:	cmp    %eax,-0x28(%rbp)
+   0x00000000004026bf <+159>:	jne    0x40264a <secret_phase+42>
+   0x00000000004026c1 <+161>:	shr    $1,%esi
+   0x00000000004026c3 <+163>:	lea    0x17f(%r8,%rcx,1),%edx
+   0x00000000004026cb <+171>:	add    %esi,%edx
+   0x00000000004026cd <+173>:	xor    %edx,%eax
+   0x00000000004026cf <+175>:	cmp    -0x24(%rbp),%eax
+   0x00000000004026d2 <+178>:	sete   %dl
+   0x00000000004026d5 <+181>:	jmp    0x40264a <secret_phase+42>
+End of assembler dump.
+Dump of assembler code for function secret_mix:
+   0x0000000000402610 <+0>:	endbr64
+   0x0000000000402614 <+4>:	mov    %edi,%eax
+   0x0000000000402616 <+6>:	ror    $1,%eax
+   0x0000000000402618 <+8>:	xor    $0x7b38,%eax
+   0x000000000040261d <+13>:	ret
+End of assembler dump.
+
+[exit status: 0]

@@ -1,0 +1,11 @@
+$ ./defuser --seed 314159 --phase 6
+3388046429
+
+[exit status: 0]
+
+$ ./bomb --seed 314159 --phase 6
+Phase 6 challenge: 0xc1a32713817bbecc
+Input (unsigned decimal integers):
+Phase 6 defused.
+
+[exit status: 0]

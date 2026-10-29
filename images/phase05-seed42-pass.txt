@@ -1,0 +1,11 @@
+$ ./defuser --seed 42 --phase 5
+917956356 1083
+
+[exit status: 0]
+
+$ ./bomb --seed 42 --phase 5
+Phase 5 challenge: 0xde4431fa3c80db06
+Input (unsigned decimal integers):
+Phase 5 defused.
+
+[exit status: 0]

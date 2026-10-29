@@ -1,0 +1,15 @@
+$ gdb -q -batch -ex set pagination off -ex set confirm off -ex set debuginfod enabled off -ex break p5_traverse -ex run --seed 42 --phase 5 < images/phase05-seed42-answer.txt -ex printf "challenge=0x%lx\n", $rdi -ex disable 1 -ex finish -ex printf "computed eax=0x%x (%u)\n", $eax,$eax -ex continue ./bomb
+Breakpoint 1 at 0x402410
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Phase 5 challenge: 0xde4431fa3c80db06
+Input (unsigned decimal integers):
+
+Breakpoint 1, 0x0000000000402410 in p5_traverse ()
+challenge=0xde4431fa3c80db06
+0x00000000004024c8 in phase_05 ()
+computed eax=0x36b6e704 (917956356)
+Phase 5 defused.
+[Inferior 1 (process 690) exited normally]
+
+[exit status: 0]

@@ -1,0 +1,11 @@
+$ ./defuser --seed 314159 --phase 5
+415078002 1896
+
+[exit status: 0]
+
+$ ./bomb --seed 314159 --phase 5
+Phase 5 challenge: 0xd2b58ef282236824
+Input (unsigned decimal integers):
+Phase 5 defused.
+
+[exit status: 0]

@@ -1,0 +1,88 @@
+$ gdb -q -batch -ex set pagination off -ex set confirm off -ex set debuginfod enabled off -ex disassemble phase_04 -ex disassemble p4_walk ./bomb
+Dump of assembler code for function phase_04:
+   0x0000000000402390 <+0>:	endbr64
+   0x0000000000402394 <+4>:	push   %rbp
+   0x0000000000402395 <+5>:	mov    %rsp,%rbp
+   0x0000000000402398 <+8>:	push   %r12
+   0x000000000040239a <+10>:	mov    %rsi,%r12
+   0x000000000040239d <+13>:	mov    $0x1,%esi
+   0x00000000004023a2 <+18>:	push   %rbx
+   0x00000000004023a3 <+19>:	mov    %rdi,%rbx
+   0x00000000004023a6 <+22>:	sub    $0x10,%rsp
+   0x00000000004023aa <+26>:	call   0x402c50 <valid_u32_fields>
+   0x00000000004023af <+31>:	test   %al,%al
+   0x00000000004023b1 <+33>:	jne    0x4023c0 <phase_04+48>
+   0x00000000004023b3 <+35>:	add    $0x10,%rsp
+   0x00000000004023b7 <+39>:	xor    %eax,%eax
+   0x00000000004023b9 <+41>:	pop    %rbx
+   0x00000000004023ba <+42>:	pop    %r12
+   0x00000000004023bc <+44>:	pop    %rbp
+   0x00000000004023bd <+45>:	ret
+   0x00000000004023be <+46>:	xchg   %ax,%ax
+   0x00000000004023c0 <+48>:	xor    %eax,%eax
+   0x00000000004023c2 <+50>:	lea    -0x14(%rbp),%rdx
+   0x00000000004023c6 <+54>:	mov    $0x403189,%esi
+   0x00000000004023cb <+59>:	mov    %rbx,%rdi
+   0x00000000004023ce <+62>:	call   0x4011e0 <__isoc99_sscanf@plt>
+   0x00000000004023d3 <+67>:	cmp    $0x1,%eax
+   0x00000000004023d6 <+70>:	jne    0x4023b3 <phase_04+35>
+   0x00000000004023d8 <+72>:	mov    %r12,%rcx
+   0x00000000004023db <+75>:	mov    %r12,%rax
+   0x00000000004023de <+78>:	mov    %r12d,%edi
+   0x00000000004023e1 <+81>:	xor    %esi,%esi
+   0x00000000004023e3 <+83>:	shr    $0x20,%rax
+   0x00000000004023e7 <+87>:	shr    $0x7,%rcx
+   0x00000000004023eb <+91>:	and    $0x7f,%edi
+   0x00000000004023ee <+94>:	mov    $0x7f,%edx
+   0x00000000004023f3 <+99>:	xor    %eax,%ecx
+   0x00000000004023f5 <+101>:	call   0x402320 <p4_walk>
+   0x00000000004023fa <+106>:	cmp    %eax,-0x14(%rbp)
+   0x00000000004023fd <+109>:	sete   %al
+   0x0000000000402400 <+112>:	add    $0x10,%rsp
+   0x0000000000402404 <+116>:	pop    %rbx
+   0x0000000000402405 <+117>:	pop    %r12
+   0x0000000000402407 <+119>:	pop    %rbp
+   0x0000000000402408 <+120>:	ret
+End of assembler dump.
+Dump of assembler code for function p4_walk:
+   0x0000000000402320 <+0>:	endbr64
+   0x0000000000402324 <+4>:	mov    %edi,%eax
+   0x0000000000402326 <+6>:	mov    %edx,%edi
+   0x0000000000402328 <+8>:	sub    %esi,%edi
+   0x000000000040232a <+10>:	shr    $1,%edi
+   0x000000000040232c <+12>:	add    %esi,%edi
+   0x000000000040232e <+14>:	cmp    %eax,%edi
+   0x0000000000402330 <+16>:	je     0x402380 <p4_walk+96>
+   0x0000000000402332 <+18>:	push   %rbp
+   0x0000000000402333 <+19>:	mov    %rsp,%rbp
+   0x0000000000402336 <+22>:	push   %rbx
+   0x0000000000402337 <+23>:	lea    (%rdi,%rcx,1),%ebx
+   0x000000000040233a <+26>:	sub    $0x8,%rsp
+   0x000000000040233e <+30>:	cmp    %edi,%eax
+   0x0000000000402340 <+32>:	jb     0x402360 <p4_walk+64>
+   0x0000000000402342 <+34>:	lea    0x1(%rdi),%esi
+   0x0000000000402345 <+37>:	mov    %eax,%edi
+   0x0000000000402347 <+39>:	call   0x402320 <p4_walk>
+   0x000000000040234c <+44>:	lea    (%rax,%rax,2),%eax
+   0x000000000040234f <+47>:	xor    %ebx,%eax
+   0x0000000000402351 <+49>:	mov    -0x8(%rbp),%rbx
+   0x0000000000402355 <+53>:	leave
+   0x0000000000402356 <+54>:	xor    $0x6,%eax
+   0x0000000000402359 <+57>:	ret
+   0x000000000040235a <+58>:	nopw   0x0(%rax,%rax,1)
+   0x0000000000402360 <+64>:	lea    -0x1(%rdi),%edx
+   0x0000000000402363 <+67>:	mov    %eax,%edi
+   0x0000000000402365 <+69>:	call   0x402320 <p4_walk>
+   0x000000000040236a <+74>:	lea    (%rax,%rax,2),%eax
+   0x000000000040236d <+77>:	xor    %ebx,%eax
+   0x000000000040236f <+79>:	mov    -0x8(%rbp),%rbx
+   0x0000000000402373 <+83>:	leave
+   0x0000000000402374 <+84>:	xor    $0x1b,%eax
+   0x0000000000402377 <+87>:	ret
+   0x0000000000402378 <+88>:	nopl   0x0(%rax,%rax,1)
+   0x0000000000402380 <+96>:	lea    0x56(%rdi),%eax
+   0x0000000000402383 <+99>:	xor    %ecx,%eax
+   0x0000000000402385 <+101>:	ret
+End of assembler dump.
+
+[exit status: 0]

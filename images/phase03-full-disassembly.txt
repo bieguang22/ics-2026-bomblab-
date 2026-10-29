@@ -1,0 +1,72 @@
+$ gdb -q -batch -ex set pagination off -ex set confirm off -ex set debuginfod enabled off -ex disassemble phase_03 -ex disassemble p3_dispatch ./bomb
+Dump of assembler code for function phase_03:
+   0x00000000004022a0 <+0>:	endbr64
+   0x00000000004022a4 <+4>:	push   %rbp
+   0x00000000004022a5 <+5>:	mov    %rsp,%rbp
+   0x00000000004022a8 <+8>:	push   %r12
+   0x00000000004022aa <+10>:	mov    %rsi,%r12
+   0x00000000004022ad <+13>:	mov    $0x2,%esi
+   0x00000000004022b2 <+18>:	push   %rbx
+   0x00000000004022b3 <+19>:	mov    %rdi,%rbx
+   0x00000000004022b6 <+22>:	sub    $0x10,%rsp
+   0x00000000004022ba <+26>:	call   0x402c50 <valid_u32_fields>
+   0x00000000004022bf <+31>:	test   %al,%al
+   0x00000000004022c1 <+33>:	jne    0x4022d0 <phase_03+48>
+   0x00000000004022c3 <+35>:	xor    %eax,%eax
+   0x00000000004022c5 <+37>:	add    $0x10,%rsp
+   0x00000000004022c9 <+41>:	pop    %rbx
+   0x00000000004022ca <+42>:	pop    %r12
+   0x00000000004022cc <+44>:	pop    %rbp
+   0x00000000004022cd <+45>:	ret
+   0x00000000004022ce <+46>:	xchg   %ax,%ax
+   0x00000000004022d0 <+48>:	xor    %eax,%eax
+   0x00000000004022d2 <+50>:	lea    -0x14(%rbp),%rcx
+   0x00000000004022d6 <+54>:	lea    -0x18(%rbp),%rdx
+   0x00000000004022da <+58>:	mov    $0x403186,%esi
+   0x00000000004022df <+63>:	mov    %rbx,%rdi
+   0x00000000004022e2 <+66>:	call   0x4011e0 <__isoc99_sscanf@plt>
+   0x00000000004022e7 <+71>:	cmp    $0x2,%eax
+   0x00000000004022ea <+74>:	jne    0x4022c3 <phase_03+35>
+   0x00000000004022ec <+76>:	mov    %r12d,%edi
+   0x00000000004022ef <+79>:	xor    %eax,%eax
+   0x00000000004022f1 <+81>:	and    $0x7,%edi
+   0x00000000004022f4 <+84>:	cmp    %edi,-0x18(%rbp)
+   0x00000000004022f7 <+87>:	jne    0x4022c5 <phase_03+37>
+   0x00000000004022f9 <+89>:	mov    %r12,%rax
+   0x00000000004022fc <+92>:	mov    %r12,%rsi
+   0x00000000004022ff <+95>:	shr    $0x3,%rax
+   0x0000000000402303 <+99>:	shr    $0x20,%rsi
+   0x0000000000402307 <+103>:	xor    %eax,%esi
+   0x0000000000402309 <+105>:	call   0x402240 <p3_dispatch>
+   0x000000000040230e <+110>:	cmp    %eax,-0x14(%rbp)
+   0x0000000000402311 <+113>:	sete   %al
+   0x0000000000402314 <+116>:	jmp    0x4022c5 <phase_03+37>
+End of assembler dump.
+Dump of assembler code for function p3_dispatch:
+   0x0000000000402240 <+0>:	endbr64
+   0x0000000000402244 <+4>:	mov    %edi,%eax
+   0x0000000000402246 <+6>:	mov    %esi,%edi
+   0x0000000000402248 <+8>:	cmp    $0x7,%eax
+   0x000000000040224b <+11>:	ja     0x402292 <p3_dispatch+82>
+   0x000000000040224d <+13>:	notrack jmp *0x405820(,%rax,8)
+   0x0000000000402255 <+21>:	nopl   (%rax)
+   0x0000000000402258 <+24>:	jmp    0x4021b0 <p3_case_1>
+   0x000000000040225d <+29>:	nopl   (%rax)
+   0x0000000000402260 <+32>:	jmp    0x4021c0 <p3_case_2>
+   0x0000000000402265 <+37>:	nopl   (%rax)
+   0x0000000000402268 <+40>:	jmp    0x402200 <p3_case_5>
+   0x000000000040226a <+42>:	nopw   0x0(%rax,%rax,1)
+   0x0000000000402270 <+48>:	jmp    0x4021a0 <p3_case_0>
+   0x0000000000402275 <+53>:	nopl   (%rax)
+   0x0000000000402278 <+56>:	jmp    0x4021e0 <p3_case_3>
+   0x000000000040227d <+61>:	nopl   (%rax)
+   0x0000000000402280 <+64>:	jmp    0x402230 <p3_case_7>
+   0x0000000000402282 <+66>:	nopw   0x0(%rax,%rax,1)
+   0x0000000000402288 <+72>:	jmp    0x4021f0 <p3_case_4>
+   0x000000000040228d <+77>:	nopl   (%rax)
+   0x0000000000402290 <+80>:	jmp    0x402220 <p3_case_6>
+   0x0000000000402292 <+82>:	xor    %eax,%eax
+   0x0000000000402294 <+84>:	ret
+End of assembler dump.
+
+[exit status: 0]

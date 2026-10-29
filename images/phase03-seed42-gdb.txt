@@ -1,0 +1,22 @@
+Breakpoint 1 at 0x402240
+Breakpoint 2 at 0x4021f0
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, 0x0000000000402240 in p3_dispatch ()
+
+=== p3_dispatch entry ===
+selector (edi) = 4
+value    (esi) = 0xb9d5bd8d (3117792653)
+=> 0x402240 <p3_dispatch>:	endbr64
+
+Breakpoint 2, 0x00000000004021f0 in p3_case_4 ()
+
+=== selected case entry ===
+case argument (edi) = 0xb9d5bd8d (3117792653)
+=> 0x4021f0 <p3_case_4>:	endbr64
+0x000000000040230e in phase_03 ()
+
+=== dispatch result ===
+eax = 0xa12d72ca (2704110282)
+[Inferior 1 (process 378) exited with code 01]

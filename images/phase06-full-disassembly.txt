@@ -1,0 +1,110 @@
+$ gdb -q -batch -ex set pagination off -ex set confirm off -ex set debuginfod enabled off -ex disassemble phase_06 -ex disassemble p6_dispatch -ex disassemble p6_op_0 -ex disassemble p6_op_1 -ex disassemble p6_op_2 -ex disassemble p6_op_3 -ex disassemble p6_op_4 -ex disassemble p6_op_5 -ex x/8a 0x405e00 ./bomb
+Dump of assembler code for function phase_06:
+   0x00000000004025b0 <+0>:	endbr64
+   0x00000000004025b4 <+4>:	push   %rbp
+   0x00000000004025b5 <+5>:	mov    %rsp,%rbp
+   0x00000000004025b8 <+8>:	push   %r12
+   0x00000000004025ba <+10>:	mov    %rsi,%r12
+   0x00000000004025bd <+13>:	mov    $0x1,%esi
+   0x00000000004025c2 <+18>:	push   %rbx
+   0x00000000004025c3 <+19>:	mov    %rdi,%rbx
+   0x00000000004025c6 <+22>:	sub    $0x10,%rsp
+   0x00000000004025ca <+26>:	call   0x402c50 <valid_u32_fields>
+   0x00000000004025cf <+31>:	test   %al,%al
+   0x00000000004025d1 <+33>:	jne    0x4025e0 <phase_06+48>
+   0x00000000004025d3 <+35>:	add    $0x10,%rsp
+   0x00000000004025d7 <+39>:	xor    %eax,%eax
+   0x00000000004025d9 <+41>:	pop    %rbx
+   0x00000000004025da <+42>:	pop    %r12
+   0x00000000004025dc <+44>:	pop    %rbp
+   0x00000000004025dd <+45>:	ret
+   0x00000000004025de <+46>:	xchg   %ax,%ax
+   0x00000000004025e0 <+48>:	xor    %eax,%eax
+   0x00000000004025e2 <+50>:	lea    -0x14(%rbp),%rdx
+   0x00000000004025e6 <+54>:	mov    $0x403189,%esi
+   0x00000000004025eb <+59>:	mov    %rbx,%rdi
+   0x00000000004025ee <+62>:	call   0x4011e0 <__isoc99_sscanf@plt>
+   0x00000000004025f3 <+67>:	cmp    $0x1,%eax
+   0x00000000004025f6 <+70>:	jne    0x4025d3 <phase_06+35>
+   0x00000000004025f8 <+72>:	mov    %r12,%rdi
+   0x00000000004025fb <+75>:	call   0x402560 <p6_dispatch>
+   0x0000000000402600 <+80>:	cmp    %eax,-0x14(%rbp)
+   0x0000000000402603 <+83>:	sete   %al
+   0x0000000000402606 <+86>:	add    $0x10,%rsp
+   0x000000000040260a <+90>:	pop    %rbx
+   0x000000000040260b <+91>:	pop    %r12
+   0x000000000040260d <+93>:	pop    %rbp
+   0x000000000040260e <+94>:	ret
+End of assembler dump.
+Dump of assembler code for function p6_dispatch:
+   0x0000000000402560 <+0>:	endbr64
+   0x0000000000402564 <+4>:	push   %rbp
+   0x0000000000402565 <+5>:	mov    %rsp,%rbp
+   0x0000000000402568 <+8>:	push   %rbx
+   0x0000000000402569 <+9>:	mov    %rdi,%rbx
+   0x000000000040256c <+12>:	shr    $0x6,%rdi
+   0x0000000000402570 <+16>:	mov    %rbx,%rax
+   0x0000000000402573 <+19>:	shr    $0x20,%rax
+   0x0000000000402577 <+23>:	xor    %eax,%edi
+   0x0000000000402579 <+25>:	mov    %rbx,%rax
+   0x000000000040257c <+28>:	sub    $0x8,%rsp
+   0x0000000000402580 <+32>:	and    $0x38,%ebx
+   0x0000000000402583 <+35>:	and    $0x7,%eax
+   0x0000000000402586 <+38>:	call   *0x405e00(,%rax,8)
+   0x000000000040258d <+45>:	xor    $0x60e4,%eax
+   0x0000000000402592 <+50>:	mov    %eax,%edi
+   0x0000000000402594 <+52>:	call   *0x405e00(%rbx)
+   0x000000000040259a <+58>:	mov    -0x8(%rbp),%rbx
+   0x000000000040259e <+62>:	leave
+   0x000000000040259f <+63>:	add    $0xe780,%eax
+   0x00000000004025a4 <+68>:	ret
+End of assembler dump.
+Dump of assembler code for function p6_op_0:
+   0x00000000004024e0 <+0>:	endbr64
+   0x00000000004024e4 <+4>:	mov    %edi,%eax
+   0x00000000004024e6 <+6>:	rol    $0x5,%eax
+   0x00000000004024e9 <+9>:	xor    $0xd157,%eax
+   0x00000000004024ee <+14>:	ret
+End of assembler dump.
+Dump of assembler code for function p6_op_1:
+   0x00000000004024f0 <+0>:	endbr64
+   0x00000000004024f4 <+4>:	mov    %edi,%eax
+   0x00000000004024f6 <+6>:	xor    $0xf304,%eax
+   0x00000000004024fb <+11>:	lea    (%rax,%rdi,8),%eax
+   0x00000000004024fe <+14>:	ret
+End of assembler dump.
+Dump of assembler code for function p6_op_2:
+   0x0000000000402500 <+0>:	endbr64
+   0x0000000000402504 <+4>:	mov    %edi,%eax
+   0x0000000000402506 <+6>:	ror    $0x5,%eax
+   0x0000000000402509 <+9>:	ret
+End of assembler dump.
+Dump of assembler code for function p6_op_3:
+   0x0000000000402510 <+0>:	endbr64
+   0x0000000000402514 <+4>:	lea    0x0(,%rdi,8),%edx
+   0x000000000040251b <+11>:	lea    0x2c06(,%rdi,4),%eax
+   0x0000000000402522 <+18>:	sub    %edi,%edx
+   0x0000000000402524 <+20>:	xor    %edx,%eax
+   0x0000000000402526 <+22>:	ret
+End of assembler dump.
+Dump of assembler code for function p6_op_4:
+   0x0000000000402530 <+0>:	endbr64
+   0x0000000000402534 <+4>:	mov    %edi,%eax
+   0x0000000000402536 <+6>:	shr    $0x2,%eax
+   0x0000000000402539 <+9>:	xor    %edi,%eax
+   0x000000000040253b <+11>:	add    $0xa553,%eax
+   0x0000000000402540 <+16>:	ret
+End of assembler dump.
+Dump of assembler code for function p6_op_5:
+   0x0000000000402550 <+0>:	endbr64
+   0x0000000000402554 <+4>:	lea    0xd9a7(%rdi),%eax
+   0x000000000040255a <+10>:	shr    $0x3,%edi
+   0x000000000040255d <+13>:	xor    %edi,%eax
+   0x000000000040255f <+15>:	ret
+End of assembler dump.
+0x405e00 <p6_ops>:	0x402550 <p6_op_5>	0x402530 <p6_op_4>
+0x405e10 <p6_ops+16>:	0x402510 <p6_op_3>	0x4024f0 <p6_op_1>
+0x405e20 <p6_ops+32>:	0x4024e0 <p6_op_0>	0x402510 <p6_op_3>
+0x405e30 <p6_ops+48>:	0x402500 <p6_op_2>	0x4024f0 <p6_op_1>
+
+[exit status: 0]

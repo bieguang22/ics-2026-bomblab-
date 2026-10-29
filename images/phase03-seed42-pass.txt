@@ -1,0 +1,11 @@
+$ ./defuser --seed 42 --phase 3
+4 2704110282
+
+[exit status: 0]
+
+$ ./bomb --seed 42 --phase 3
+Phase 3 challenge: 0x581ce1ff0e4ae394
+Input (unsigned decimal integers):
+Phase 3 defused.
+
+[exit status: 0]

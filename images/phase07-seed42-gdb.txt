@@ -1,0 +1,39 @@
+$ gdb -q -batch -ex set pagination off -ex set confirm off -ex set debuginfod enabled off -ex break *0x40276b -ex break secret_phase -ex run --seed 42 < images/phase07-seed42-answer.txt -ex printf "gate bytes at offset 32:\n" -ex x/4cb $rbp-0xb0 -ex printf "payload at offset 36:\n" -ex x/s $rbp-0xac -ex continue -ex printf "challenge=0x%lx context=0x%lx\n", $rsi,$rdx -ex finish -ex printf "secret_phase bool result (al) = %u\n", (unsigned char)$al -ex continue ./bomb
+Breakpoint 1 at 0x40276b
+Breakpoint 2 at 0x402628
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Phase 1 challenge: 0x28efe333b266f103
+Input (unsigned decimal integers):
+Phase 1 defused.
+Phase 2 challenge: 0x47526757130f9f52
+Input (unsigned decimal integers):
+Phase 2 defused.
+Phase 3 challenge: 0x581ce1ff0e4ae394
+Input (unsigned decimal integers):
+Phase 3 defused.
+Phase 4 challenge: 0x09bc585a244823f2
+Input (unsigned decimal integers):
+Phase 4 defused.
+Phase 5 challenge: 0xde4431fa3c80db06
+Input (unsigned decimal integers):
+Phase 5 defused.
+Phase 6 challenge: 0x37e9671c45376d5d
+Input (unsigned decimal integers):
+
+Breakpoint 1, 0x000000000040276b in secret_gate ()
+gate bytes at offset 32:
+0x7fffffffd960:	79 'O'	80 'P'	69 'E'	78 'N'
+payload at offset 36:
+0x7fffffffd964:	"3 308913114 2745741094"
+
+Breakpoint 2, 0x0000000000402628 in secret_phase ()
+challenge=0xccf635ee9e9e2fa4 context=0x4cb4ff1ac438014f
+0x0000000000402789 in secret_gate ()
+secret_phase bool result (al) = 1
+Phase 6 defused.
+Congratulations! You've defused the bomb.
+Secret phase defused.
+[Inferior 1 (process 441) exited normally]
+
+[exit status: 0]

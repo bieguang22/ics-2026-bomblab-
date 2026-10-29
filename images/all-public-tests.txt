@@ -1,0 +1,75 @@
+$ python3 public_test.py
+Phase 1 seed 0: PASS
+Phase 1 seed 1: PASS
+Phase 1 seed 7: PASS
+Phase 1 seed 42: PASS
+Phase 1 seed 99: PASS
+Phase 1 seed 123: PASS
+Phase 1 seed 2026: PASS
+Phase 1 seed 65535: PASS
+Phase 1 seed 987654321: PASS
+Phase 1 seed 18446744073709551615: PASS
+Phase 2 seed 0: PASS
+Phase 2 seed 1: PASS
+Phase 2 seed 7: PASS
+Phase 2 seed 42: PASS
+Phase 2 seed 99: PASS
+Phase 2 seed 123: PASS
+Phase 2 seed 2026: PASS
+Phase 2 seed 65535: PASS
+Phase 2 seed 987654321: PASS
+Phase 2 seed 18446744073709551615: PASS
+Phase 3 seed 0: PASS
+Phase 3 seed 1: PASS
+Phase 3 seed 7: PASS
+Phase 3 seed 42: PASS
+Phase 3 seed 99: PASS
+Phase 3 seed 123: PASS
+Phase 3 seed 2026: PASS
+Phase 3 seed 65535: PASS
+Phase 3 seed 987654321: PASS
+Phase 3 seed 18446744073709551615: PASS
+Phase 4 seed 0: PASS
+Phase 4 seed 1: PASS
+Phase 4 seed 7: PASS
+Phase 4 seed 42: PASS
+Phase 4 seed 99: PASS
+Phase 4 seed 123: PASS
+Phase 4 seed 2026: PASS
+Phase 4 seed 65535: PASS
+Phase 4 seed 987654321: PASS
+Phase 4 seed 18446744073709551615: PASS
+Phase 5 seed 0: PASS
+Phase 5 seed 1: PASS
+Phase 5 seed 7: PASS
+Phase 5 seed 42: PASS
+Phase 5 seed 99: PASS
+Phase 5 seed 123: PASS
+Phase 5 seed 2026: PASS
+Phase 5 seed 65535: PASS
+Phase 5 seed 987654321: PASS
+Phase 5 seed 18446744073709551615: PASS
+Phase 6 seed 0: PASS
+Phase 6 seed 1: PASS
+Phase 6 seed 7: PASS
+Phase 6 seed 42: PASS
+Phase 6 seed 99: PASS
+Phase 6 seed 123: PASS
+Phase 6 seed 2026: PASS
+Phase 6 seed 65535: PASS
+Phase 6 seed 987654321: PASS
+Phase 6 seed 18446744073709551615: PASS
+Public tests: 60/60
+Secret seed 0: PASS
+Secret seed 1: PASS
+Secret seed 7: PASS
+Secret seed 42: PASS
+Secret seed 99: PASS
+Secret seed 123: PASS
+Secret seed 2026: PASS
+Secret seed 65535: PASS
+Secret seed 987654321: PASS
+Secret seed 18446744073709551615: PASS
+Secret public tests: 10/10
+
+[exit status: 0]

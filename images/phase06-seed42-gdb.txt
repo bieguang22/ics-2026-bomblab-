@@ -1,0 +1,15 @@
+$ gdb -q -batch -ex set pagination off -ex set confirm off -ex set debuginfod enabled off -ex break p6_dispatch -ex run --seed 42 --phase 6 < images/phase06-seed42-answer.txt -ex printf "challenge=0x%lx\n", $rdi -ex disable 1 -ex finish -ex printf "computed eax=0x%x (%u)\n", $eax,$eax -ex continue ./bomb
+Breakpoint 1 at 0x402568
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Phase 6 challenge: 0x37e9671c45376d5d
+Input (unsigned decimal integers):
+
+Breakpoint 1, 0x0000000000402568 in p6_dispatch ()
+challenge=0x37e9671c45376d5d
+0x0000000000402600 in phase_06 ()
+computed eax=0x4343eddd (1128525277)
+Phase 6 defused.
+[Inferior 1 (process 703) exited normally]
+
+[exit status: 0]
